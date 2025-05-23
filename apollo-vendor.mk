@@ -31,6 +31,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/apollo/proprietary/vendor/etc/acdbdata/Forte/Forte_Speaker_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/Forte/Forte_Speaker_cal.acdb \
     vendor/xiaomi/apollo/proprietary/vendor/etc/acdbdata/Forte/Forte_workspaceFile.qwsp:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/Forte/Forte_workspaceFile.qwsp \
     vendor/xiaomi/apollo/proprietary/vendor/etc/acdbdata/adsp_avs_config.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/adsp_avs_config.acdb \
+    vendor/xiaomi/apollo/proprietary/vendor/etc/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
     vendor/xiaomi/apollo/proprietary/vendor/etc/cacert_location.pem:$(TARGET_COPY_OUT_VENDOR)/etc/cacert_location.pem \
     vendor/xiaomi/apollo/proprietary/vendor/etc/camera/CFR_para_MACRO_V01.bin:$(TARGET_COPY_OUT_VENDOR)/etc/camera/CFR_para_MACRO_V01.bin \
     vendor/xiaomi/apollo/proprietary/vendor/etc/camera/CFR_para_MACRO_V01_SN.bin:$(TARGET_COPY_OUT_VENDOR)/etc/camera/CFR_para_MACRO_V01_SN.bin \
@@ -134,9 +135,12 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/apollo/proprietary/vendor/etc/default-permissions/com.qualcomm.qti.cne.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default-permissions/com.qualcomm.qti.cne.xml \
     vendor/xiaomi/apollo/proprietary/vendor/etc/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
     vendor/xiaomi/apollo/proprietary/vendor/etc/elliptic_sensor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/elliptic_sensor.xml \
+    vendor/xiaomi/apollo/proprietary/vendor/etc/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
+    vendor/xiaomi/apollo/proprietary/vendor/etc/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
     vendor/xiaomi/apollo/proprietary/vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.bluetooth@1.0-service-qti.rc \
     vendor/xiaomi/apollo/proprietary/vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm@1.3-service.widevine.rc \
     vendor/xiaomi/apollo/proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc \
+    vendor/xiaomi/apollo/proprietary/vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gnss@2.1-service-qti.rc \
     vendor/xiaomi/apollo/proprietary/vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.keymaster@4.0-service-qti.rc \
     vendor/xiaomi/apollo/proprietary/vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc \
     vendor/xiaomi/apollo/proprietary/vendor/etc/init/cnd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cnd.rc \
@@ -194,6 +198,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/apollo/proprietary/vendor/etc/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     vendor/xiaomi/apollo/proprietary/vendor/etc/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
     vendor/xiaomi/apollo/proprietary/vendor/etc/qdcm_calib_data_xiaomi_37_02_0a_video_mode_dsc_dsi_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_xiaomi_37_02_0a_video_mode_dsc_dsi_panel.xml \
+    vendor/xiaomi/apollo/proprietary/vendor/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
     vendor/xiaomi/apollo/proprietary/vendor/etc/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config \
     vendor/xiaomi/apollo/proprietary/vendor/etc/seccomp_policy/atfwd@2.0.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/atfwd@2.0.policy \
     vendor/xiaomi/apollo/proprietary/vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.base-arm.policy \
@@ -589,10 +594,12 @@ PRODUCT_PACKAGES += \
     deviceInfoServiceModule \
     android.hardware.bluetooth@1.0-impl-qti \
     android.hardware.gatekeeper@1.0-impl-qti \
+    android.hardware.gnss@2.1-impl-qti \
     camera.qcom \
     camera.xiaomi \
     com.qti.chi.override \
     fingerprint.fpc.default \
+    vendor.qti.gnss@4.0-impl \
     vendor.qti.hardware.alarm@1.0-impl \
     vendor.qti.hardware.bluetooth_sar@1.1-impl \
     vendor.qti.hardware.btconfigstore@1.0-impl \
@@ -654,6 +661,7 @@ PRODUCT_PACKAGES += \
     libasn1cper \
     libasn1crt \
     libasn1crtx \
+    libbatching \
     libbeauty_face_interface \
     libbtnv \
     libc++_shared \
@@ -709,6 +717,9 @@ PRODUCT_PACKAGES += \
     libft2vendor \
     libgame_enhance \
     libgdtap \
+    libgeofencing \
+    libgnss \
+    libgnsspps \
     libgps.utils \
     libhdr_tm \
     libhexagon_nn_stub \
@@ -724,8 +735,12 @@ PRODUCT_PACKAGES += \
     libkeymasterutils \
     liblbs_core \
     libloc_api_v02 \
+    libloc_api_wds \
     libloc_core \
+    libloc_socket \
     liblocation_api \
+    liblocationservice \
+    liblocationservice_glue \
     liblowi_client \
     liblowi_wifihal \
     liblqe \
@@ -809,6 +824,7 @@ PRODUCT_PACKAGES += \
     libsensorcal \
     libsensorslog \
     libsettings \
+    libslimclient \
     libsn100u_fw \
     libsnpe_adsp \
     libsnpe_dsp_domains \
@@ -885,6 +901,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.gnss@2.0 \
     vendor.qti.gnss@2.1 \
     vendor.qti.gnss@3.0 \
+    vendor.qti.gnss@4.0-service \
     vendor.qti.gnss@4.0 \
     vendor.qti.hardware.alarm@1.0 \
     vendor.qti.hardware.bluetooth_sar@1.0 \
@@ -1040,11 +1057,13 @@ PRODUCT_PACKAGES += \
     com.qti.dpmframework \
     dpmapi \
     qcrilhook \
+    android.hardware.gnss@2.1-service-qti.xml \
     android.hardware.neuralnetworks@1.3-service-qti-hta.xml \
     android.hardware.neuralnetworks@1.3-service-qti.xml \
     c2_manifest_vendor.xml \
     manifest_android.hardware.drm@1.3-service.widevine.xml \
     manifest_vendor.dolby.hardware.dms.xml \
+    vendor.qti.gnss@4.0-service.xml \
     ATFWD-daemon \
     adpl \
     adsprpcd \
@@ -1059,6 +1078,7 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service-qti \
     android.hardware.drm@1.3-service.widevine \
     android.hardware.gatekeeper@1.0-service-qti \
+    android.hardware.gnss@2.1-service-qti \
     android.hardware.keymaster@4.0-service-qti \
     android.hardware.neuralnetworks@1.3-service-qti \
     qcrild \
@@ -1104,6 +1124,7 @@ PRODUCT_PACKAGES += \
     rmt_storage \
     sensors.qti \
     shsusrd \
+    slim_daemon \
     sscrpcd \
     ssgtzd \
     ssr_setup \
