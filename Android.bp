@@ -19558,7 +19558,7 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
-        android_arm: {
+        android_arm64: {
             srcs: [
                 "proprietary/system_ext/lib64/com.qualcomm.qti.wifidisplayhal@1.0.so",
             ],
@@ -19574,7 +19574,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "32",
+    compile_multilib: "64",
     prefer: true,
     system_ext_specific: true,
 }
@@ -20293,6 +20293,7 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib64/libwfdmmsrc_system.so",
             ],
             shared_libs: [
+                "libgui_shim",
                 "libbinder",
                 "libmmosal",
                 "liblog",
@@ -20335,6 +20336,8 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib64/libwfdnative.so",
             ],
             shared_libs: [
+                "libinput_shim",
+                "libbinder_shim",
                 "libandroid_runtime",
                 "libui",
                 "libinput",
