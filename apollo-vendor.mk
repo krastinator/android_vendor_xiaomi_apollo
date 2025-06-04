@@ -77,6 +77,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/apollo/proprietary/vendor/etc/camera/goturn_search_dsp.dlc:$(TARGET_COPY_OUT_VENDOR)/etc/camera/goturn_search_dsp.dlc \
     vendor/xiaomi/apollo/proprietary/vendor/etc/camera/goturn_target_dsp.dlc:$(TARGET_COPY_OUT_VENDOR)/etc/camera/goturn_target_dsp.dlc \
     vendor/xiaomi/apollo/proprietary/vendor/etc/camera/hdrd_ui9_params.config:$(TARGET_COPY_OUT_VENDOR)/etc/camera/hdrd_ui9_params.config \
+    vendor/xiaomi/apollo/proprietary/vendor/etc/camera/megviifacepp_0_5_2_model:$(TARGET_COPY_OUT_VENDOR)/etc/camera/megviifacepp_0_5_2_model \
     vendor/xiaomi/apollo/proprietary/vendor/etc/camera/mibokeh_855_opencl.bin:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mibokeh_855_opencl.bin \
     vendor/xiaomi/apollo/proprietary/vendor/etc/camera/mibokeh_855_parameter.bin:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mibokeh_855_parameter.bin \
     vendor/xiaomi/apollo/proprietary/vendor/etc/camera/model.dat:$(TARGET_COPY_OUT_VENDOR)/etc/camera/model.dat \
@@ -626,6 +627,7 @@ PRODUCT_PACKAGES += \
     libGPreqcancel_svc \
     libHalSuperSensorServer \
     libMIAIHDRhvx_interface \
+    libMegviiFacepp-0.5.2 \
     libQSEEComAPI \
     libQTEEConnector_listener \
     libQTEEConnector_vendor \
@@ -742,6 +744,7 @@ PRODUCT_PACKAGES += \
     liblqe \
     libmdmdetect \
     libmdmimgload \
+    libmegface_vendor \
     libmialgo_ie_capture \
     libmialgo_ie_preview \
     libmialgo_image_colourkeeping \
